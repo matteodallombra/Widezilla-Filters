@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-10-26T23:29:09.515471+00:00",
+  "converter": "SafariConverterLib 4.3.1",
+  "converterCommit": "1cfdcaf042880a5e0027a8fc6f7ebf9ee667acc9",
+  "safariVersion": 26,
+  "advancedBlocking": false,
+  "count": 112800,
+  "unsupportedRules": 79,
+  "discardedRules": 0,
+  "sourceSHA256": [
+    "e0bbbfcc7ad3cb57eb4715798bd2f1cfb04006a2a3b081ea517e60db861ca926",
+    "c6c816c21aa6af9e0b82b28d43ba11f929b4b0e170fac0ecaf3dff0374826280"
+  ],
+  "sources": [
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt"
+  ],
+  "license": "CC-BY-SA-3.0"
+}
