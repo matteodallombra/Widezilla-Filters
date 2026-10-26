@@ -1,0 +1,32 @@
+name: Refresh native filter data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 5 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: filter-data
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build pinned standalone converter
+        run: |
+          git clone https://github.com/AdguardTeam/SafariConverterLib.git "$RUNNER_TEMP/converter"
+          git -C "$RUNNER_TEMP/converter" checkout 1cfdcaf042880a5e0027a8fc6f7ebf9ee667acc9
+          swift build --package-path "$RUNNER_TEMP/converter" -c release --product ConverterTool
+      - name: Generate and validate data
+        run: python3 Scripts/publish_filters.py --converter "$RUNNER_TEMP/converter/.build/release/ConverterTool" --output "$RUNNER_TEMP/feed"
+      - name: Publish only approved data files
+        run: |
+          cp "$RUNNER_TEMP/feed/latest.json" "$RUNNER_TEMP/feed/provenance.json" .
+          git config user.name 'Widezilla filter publisher'
+          git config user.email 'filter-publisher@users.noreply.github.com'
+          git add latest.json provenance.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Refresh EasyList and EasyPrivacy native rules'
+          git push origin main
