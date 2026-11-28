@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-11-27T05:28:40.741912+00:00",
+  "generatedAt": "2026-11-28T05:26:54.286167+00:00",
   "converter": "SafariConverterLib 4.3.1",
   "converterCommit": "1cfdcaf042880a5e0027a8fc6f7ebf9ee667acc9",
   "safariVersion": 26,
   "advancedBlocking": false,
-  "count": 117404,
+  "count": 117568,
   "unsupportedRules": 81,
   "discardedRules": 0,
   "sourceSHA256": [
-    "59d4a5d6aacacb73f87b4f37f20ba467f52f5e1ddf111a0ebc49f90905a8bf27",
-    "982144e0a4260b9823b29060c66b9c61852517094bb1402bc29d82c583e7348d"
+    "0d73e4d75d7ceb3cefaba0b14faf455e6e106c7d51640950d154ea3950654a32",
+    "11fac525b8fd9b8f781ae05c0cb1b336393cf95bbd99b51691d0bb2708b6cb9a"
   ],
   "sources": [
     "https://easylist.to/easylist/easylist.txt",
